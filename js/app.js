@@ -3,9 +3,9 @@ const username = 'johnpapa';
 let totalPages = 1;
 const reposPerPage = 10;
 let totalRepositories = 0;
+const token = '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'; // Replace with your personal access token
 
-const fetchAndDisplayUserInfo = async (username) => {
-  const token = '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'; // Replace with your personal access token
+const fetchAndDisplayUserInfo = async (username) => { 
   try {
     const response = await fetch(`https://api.github.com/users/${username}`, {
       headers: {
@@ -47,7 +47,7 @@ const fetchAndDisplayRepositories = async (username, page) => {
     try {
       const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=200`, {
         headers: {
-          Authorization: 'token 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'
+          Authorization: `token ${token}`
         }
       });
 
@@ -60,7 +60,7 @@ const fetchAndDisplayRepositories = async (username, page) => {
     await Promise.all(data.map(async (repo) => {
       const topicsResponse = await fetch(`https://api.github.com/repos/${username}/${repo.name}/topics`, {
         headers: {
-          Authorization: 'token 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',
+          Authorization: `token ${token}`,
           Accept: "application/vnd.github.mercy-preview+json"
         }
       });
@@ -141,11 +141,10 @@ const updatePaginationInfo = () => {
 
   // Assuming you have an array of repository names called 'repositoryNames'
   const fetchRepositoryNames = async (username) => {
-    const token = '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';
     try {
       const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=200`, {
         headers: {
-          Authorization: `token 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`
+          Authorization: `token ${token}`
         }
       });
       if (!response.ok) {
