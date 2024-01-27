@@ -7,11 +7,7 @@ const token = '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'; // Replace with your p
 
 const fetchAndDisplayUserInfo = async (username) => { 
   try {
-    const response = await fetch(`https://api.github.com/users/${username}`, {
-      headers: {
-        Authorization: `token ${token}`
-      }
-    });
+    const response = await fetch(`https://api.github.com/users/${username}`);
     const userData = await response.json();
     displayUserInfo(userData);
   } catch (error) {
@@ -45,11 +41,7 @@ fetchAndDisplayUserInfo(username);
 // Function to fetch repositories and update pagination information
 const fetchAndDisplayRepositories = async (username, page) => {
     try {
-      const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=200`, {
-        headers: {
-          Authorization: `token ${token}`
-        }
-      });
+      const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=200`);
 
       const data = await response.json();
       totalRepositories = data.length; // Count the total number of repositories
@@ -60,7 +52,6 @@ const fetchAndDisplayRepositories = async (username, page) => {
     await Promise.all(data.map(async (repo) => {
       const topicsResponse = await fetch(`https://api.github.com/repos/${username}/${repo.name}/topics`, {
         headers: {
-          Authorization: `token ${token}`,
           Accept: "application/vnd.github.mercy-preview+json"
         }
       });
@@ -142,11 +133,7 @@ const updatePaginationInfo = () => {
   // Assuming you have an array of repository names called 'repositoryNames'
   const fetchRepositoryNames = async (username) => {
     try {
-      const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=200`, {
-        headers: {
-          Authorization: `token ${token}`
-        }
-      });
+      const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=200`);
       if (!response.ok) {
         throw new Error(`Failed to fetch repositories: ${response.status} ${response.statusText}`);
       }
