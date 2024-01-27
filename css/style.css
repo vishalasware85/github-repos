@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#main{
+    width: 100%;
+    height: 100%;
+}
+
+/* Style for the search container */
+.search-container {
+    position: relative;
+  }
+
+  #searchBar{
+    position: absolute;
+  top: 0;
+  right: 10%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px;
+  }
+  
+  /* Style for the autocomplete results */
+  .autocomplete-results {
+    position: absolute;
+  top: 0; /* Position the autocomplete results below the search bar */
+  right: 10%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none; 
+  margin-top: 2%;
+  }
+  
+  /* Style for individual autocomplete items */
+  .autocomplete-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  /* Style for the card container */
+  #cardContainer {
+    padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+
+  .autocompleteCard:hover {
+    background-color: #f4f4f4;
+  }
+
+#header{
+    padding-top: 2%;
+    padding-left: 10%;
+    display: flex;
+}
+
+#leftSide{
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+}
+
+#userImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+#userlinktxt{
+    text-decoration: none;
+    color: black;
+    margin-top: 20%;
+    font-size: 110%;
+    font-weight: bold;
+}
+
+#rightSide{
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+#usernametxt{
+    font-size: 200%;
+    font-weight: bold;
+}
+
+#userbiotxt{
+    font-size: 150%;
+    margin-top: 10%;
+}
+
+#userlocattxt{
+    font-size: 150%;
+    margin-top: 5%;
+}
+
+#userlinktxt{
+    font-size: 150%;
+    margin-top: 5%;
+}
+
+#cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+#card{
+    flex: 0 0 40%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin: 10px; 
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 1px solid #000000;
+}
+
+#cardtitle{
+    font-size: 180%;
+    font-weight: bold;
+}
+
+#carddesc{
+    font-size: 120%;
+    margin-top: 2%;
+}
+
+#topics{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2%;
+}
+
+.topic{
+    background-color: rgb(77, 77, 153);
+    color: white;
+    border-radius: 5px;
+    padding: 1.5%;
+    margin: 0.5%;
+}
+
+/* CSS for pagination styling */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    padding-bottom: 2%;
+  }
+  
+  .pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .pagination button:hover {
+    background-color: #45a049;
+  }
+  
+  .pagination button:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
